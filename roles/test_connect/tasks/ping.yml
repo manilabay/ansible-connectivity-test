@@ -3,7 +3,7 @@
   loop: "{{ groups['targets'] }}"
   register: command_output
   ignore_errors: yes
-  no_log: true
+  no_log: false
   changed_when: false
 
 - name: Ping Report

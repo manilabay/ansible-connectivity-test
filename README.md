@@ -43,6 +43,11 @@ Inside of playbook path, execute:
 # ansible-playbook -i hosts site.yml -k
 ```
 
+Run from local with:
+```
+# ansible-playbook -i inventory/<filename> site.yml --connection=local 
+```
+
 This above command ask for password. If you don't need password, remove -k parameter.
 
 

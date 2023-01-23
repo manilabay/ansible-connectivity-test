@@ -1,3 +1,6 @@
 user: raragao
-ping_command: ping -c 1 -q -W 1 
-traceroute_command: traceroute -m 10
+ip_command: ipconfig
+telnet_command: telnet 
+ping_command: ping  
+traceroute_command: tracert -i
+
