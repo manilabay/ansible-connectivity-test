@@ -1,9 +1,12 @@
 [sources]
-192.168.103.3
-192.168.103.6
+180.102.120.74
 
 [targets]
-192.168.103.3
-192.168.103.55
-192.168.103.6
-192.168.103.1
+itxa-maas.scib.dev.corp
+cibd1weurvmlapmaas001.azure.scib.dev.corp
+itxa-maas.scib.pre.corp
+bvmnglapmaasi01.nngg.corp 
+bvmnglapmaasi02.nngg.corp 
+itxa-maas.scib.gs.corp 
+bvmnglapmaasp01.nngg.corp 
+bvmnglapmaasp02.nngg.corp
