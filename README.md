@@ -45,10 +45,31 @@ Inside of playbook path, execute:
 
 Run from local with:
 ```
-# ansible-playbook -i inventory/<filename> site.yml --connection=local 
+# ansible-playbook -i inventory/<filename> site.yml --connection=local -k
 ```
 
-This above command ask for password. If you don't need password, remove -k parameter.
+Run and save evidences on a Request code file to claim FW rules:
+ansible-playbook -i inventory/<filename> site.yml --connection=local > evidences_REQ123
+
+This above commands ask for password. If you don't need password, remove -k parameter.
+
+To get all built commands to run manually or ship to remote host run:
+```
+# ansible-playbook -i inventory/hosts-rds-glorec-pro site.yml --connection=local > built_command_glorec_pro_rds
+# cat built_command_glorec_pro_rds | grep "BUILT COMMAND" | cut -f4 -d'"' | cut -f2 -d':'
+```
+
+And it will returns:
+```
+# telnet cibp1airaurglorecgene001.aws.scib.gs.corp 60000
+# telnet cibp1airaurglorecgene001.cluster-coibuez95clo.eu-west-1.rds.amazonaws.com 60000
+# ping cibp1airaurglorecgene001.aws.scib.gs.corp
+# ping cibp1airaurglorecgene001.cluster-coibuez95clo.eu-west-1.rds.amazonaws.com
+# tracert -i cibp1airaurglorecgene001.aws.scib.gs.corp
+# tracert -i cibp1airaurglorecgene001.cluster-coibuez95clo.eu-west-1.rds.amazonaws.com
+
+```
+
 
 
 ## Results

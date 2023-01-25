@@ -1,3 +1,5 @@
 ---
+- include: ip.yml
+- include: telnet.yml
 - include: ping.yml
 - include: traceroute.yml

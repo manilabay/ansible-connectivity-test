@@ -1,15 +1,11 @@
-- name: Traceroute executing
-  shell: "{{ traceroute_command }} {{ item }}"
-  loop: "{{ groups['targets'] }}"
+- debug:
+    msg: "BUILT COMMAND: {{ traceroute_command }} {{ hostvars[item].inventory_hostname}}"
+  with_items: "{{ groups['targets'] }}"
+  
+- name: TRACEROUTE TEST
+  shell: "{{ traceroute_command }} {{ hostvars[item].inventory_hostname}}"
+  with_items: "{{ groups['targets'] }}"
   register: command_output
   ignore_errors: yes
   no_log: false
   changed_when: false
-
-- name: Traceroute report
-  debug: 
-    msg: "{{ item.stdout.split('\n') }}"
-  when: item.rc == 0
-  loop: "{{ command_output.results }}"
-  loop_control: 
-    label: "{{ item.cmd }}"

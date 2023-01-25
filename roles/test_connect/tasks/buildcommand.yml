@@ -1,0 +1,8 @@
+- name: BUILD TEST COMMAND
+  - debug:
+    msg: "BUILT COMMAND {{ build_command }} {{ item.port }}"
+  register: command_output
+  ignore_errors: yes
+  no_log: false
+  changed_when: false
+

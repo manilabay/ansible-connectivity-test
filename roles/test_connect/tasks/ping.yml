@@ -1,15 +1,15 @@
-- name: Ping Executing
-  shell: "{{ ping_command }} {{ item }}"
-  loop: "{{ groups['targets'] }}"
+- debug:
+    msg: "BUILT COMMAND: {{ ping_command }} {{ hostvars[item].inventory_hostname}}"
+  with_items: "{{ groups['targets'] }}"
+  
+- name: TELNET TEST
+  shell: "{{ ping_command }} {{ hostvars[item] }}"
+  with_items: "{{ groups['targets'] }}"
   register: command_output
   ignore_errors: yes
   no_log: false
   changed_when: false
+  
 
-- name: Ping Report
-  debug: 
-    msg: "PING SUCCESS"
-  when: item.rc == 0
-  loop: "{{ command_output.results }}"
-  loop_control: 
-    label: "Ping to {{ item.item }}"
+
+
