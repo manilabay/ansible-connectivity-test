@@ -1,0 +1,7 @@
+ip_command: ifconfig
+telnet_command: telnet 
+ping_command: ping  
+traceroute_command: traceroute
+
+
+

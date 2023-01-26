@@ -1,4 +1,5 @@
 ---
+- include_vars: "{{ ansible_system.split('_')[0] | lower }}.yml"
 - include: ip.yml
 - include: telnet.yml
 - include: ping.yml

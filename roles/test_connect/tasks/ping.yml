@@ -1,9 +1,9 @@
 - debug:
-    msg: "BUILT COMMAND: {{ ping_command }} {{ hostvars[item].inventory_hostname}}"
+    msg: "BUILT COMMAND: {{ ping_command }} {{ hostvars[item].inventory_hostname.split('/')[0] }}"
   with_items: "{{ groups['targets'] }}"
   
-- name: TELNET TEST
-  shell: "{{ ping_command }} {{ hostvars[item] }}"
+- name: PING TEST
+  shell: "{{ ping_command }} {{ hostvars[item].inventory_hostname.split('/')[0] }}"
   with_items: "{{ groups['targets'] }}"
   register: command_output
   ignore_errors: yes

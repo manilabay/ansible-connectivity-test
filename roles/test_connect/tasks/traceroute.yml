@@ -1,9 +1,9 @@
 - debug:
-    msg: "BUILT COMMAND: {{ traceroute_command }} {{ hostvars[item].inventory_hostname}}"
+    msg: "BUILT COMMAND: {{ traceroute_command }} {{ hostvars[item].inventory_hostname.split('/')[0] }}"
   with_items: "{{ groups['targets'] }}"
   
 - name: TRACEROUTE TEST
-  shell: "{{ traceroute_command }} {{ hostvars[item].inventory_hostname}}"
+  shell: "{{ traceroute_command }} {{ hostvars[item].inventory_hostname.split('/')[0] }}"
   with_items: "{{ groups['targets'] }}"
   register: command_output
   ignore_errors: yes

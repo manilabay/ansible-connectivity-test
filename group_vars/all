@@ -1,6 +1,5 @@
-user: raragao
-ip_command: ipconfig
-telnet_command: telnet 
-ping_command: ping  
-traceroute_command: tracert -i
+user: sb2b
+
+
+
 

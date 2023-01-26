@@ -1,12 +1,15 @@
 - debug:
-    msg: "{{ ansible_date_time.iso8601 }}"
-    
+    msg: "DATETIME: {{ ansible_date_time.iso8601 }}"
+
 - debug:
     msg: "BUILT COMMAND: {{ ip_command }}"
   
+# - debug: 
+#     msg: "{{ ansible_facts['ansible_system'] }}"
+    
 - name: IP SOURCE
   shell: "{{ ip_command }}"
-  #loop: "{{ groups['targets'] }}"
+  #loop: "{{ groups['sources'] }}"
   register: command_output
   ignore_errors: yes
   no_log: false

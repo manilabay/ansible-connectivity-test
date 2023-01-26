@@ -56,7 +56,8 @@ This above commands ask for password. If you don't need password, remove -k para
 To get all built commands to run manually or ship to remote host run:
 ```
 # ansible-playbook -i inventory/hosts-rds-glorec-pro site.yml --connection=local > built_command_glorec_pro_rds
-# cat built_command_glorec_pro_rds | grep "BUILT COMMAND" | cut -f4 -d'"' | cut -f2 -d':'
+# cat built_command_glorec_pro_rds | egrep -e "BUILT COMMAND|DATETIME" | cut -f4 -d'"' | cut -f2 -d':'
+
 ```
 
 And it will returns:

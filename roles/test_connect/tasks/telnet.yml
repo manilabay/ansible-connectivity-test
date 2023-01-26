@@ -1,9 +1,9 @@
 - debug:
-    msg: 'BUILT COMMAND: {{ telnet_command }} {{ hostvars[item].inventory_hostname.split(":")[0] }} {{ hostvars[item].inventory_hostname.split(":")[1] }}'
+    msg: "BUILT COMMAND: {{ telnet_command }} {{ hostvars[item].inventory_hostname.split('/')[0] }} {{ hostvars[item].inventory_hostname.split('/')[1] }}"
   with_items: "{{ groups['targets'] }}"
   
 - name: TELNET TEST
-  shell: '{{ telnet_command }} {{ hostvars[item].inventory_hostname.split(":")[0] }} {{ hostvars[item].inventory_hostname.split(":")[1] }}'
+  shell: '{{ telnet_command }} {{ hostvars[item].inventory_hostname.split("/")[0] }} {{ hostvars[item].inventory_hostname.split("/")[1] }}'
   with_items: "{{ groups['targets'] }}"
   register: command_output
   ignore_errors: yes
