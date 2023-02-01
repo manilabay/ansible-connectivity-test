@@ -9,3 +9,4 @@
   ignore_errors: yes
   no_log: false
   changed_when: false
+  tags: check

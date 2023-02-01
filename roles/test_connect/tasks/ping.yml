@@ -9,6 +9,13 @@
   ignore_errors: yes
   no_log: false
   changed_when: false
+  tags: check
+  
+- name: MODULE PING TEST
+  ansible.netcommon.net_ping:
+    dest: "{{ hostvars[item].inventory_hostname }}"
+  with_items: "{{ groups['targets'] }}"
+  tags: check
   
 
 
