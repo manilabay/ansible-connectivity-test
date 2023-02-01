@@ -1,0 +1,15 @@
+- debug:
+    msg: "BUILT COMMAND: {{ echo_command }} > /dev/tcp/{{ hostvars[item].inventory_hostname.split('/')[0] }}/{{ hostvars[item].inventory_hostname.split('/')[1] }} && echo OK || echo KO"
+  with_items: "{{ groups['targets'] }}"
+  
+- name: ECHO TEST
+  shell: '{{ echo_command }} > /dev/tcp/{{ hostvars[item].inventory_hostname.split("/")[0] }}/{{ hostvars[item].inventory_hostname.split("/")[1] }} && echo OK || echo KO'
+  with_items: "{{ groups['targets'] }}"
+  register: command_output
+  ignore_errors: yes
+  no_log: false
+  changed_when: false
+  tags: check
+  
+ 
+
