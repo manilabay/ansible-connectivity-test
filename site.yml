@@ -3,7 +3,7 @@
   hosts: 
     - sources
   remote_user: "{{ user }}"
-  gather_facts: true
+  gather_facts: false
 
   roles:
     - test_connect
